@@ -4,7 +4,7 @@
 
 Name:		tcl-%{realname}
 Version:	2.1.3
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	Tcl extension providing "transformer" commands
 Group:		System Environment/Libraries
 License:	MIT and BSD and LGPLv2+ and GPLv2+ and Public Domain and OpenSSL
@@ -53,7 +53,7 @@ mv haval-1.1 haval/
 ln -s haval haval.1996
 popd
 %patch0 -p1 -b .haval
-%patch1 -p1
+%patch1 -p1 -b .ripemd
 
 # Get rid of incorrect ripemd docs
 rm -rf doc/digest/ripemd.inc doc/man/ripemd128.n doc/man/ripemd160.n doc/ripemd128.man doc/tmml/ripemd128.tmml doc/tmml/ripemd160.tmml
@@ -83,6 +83,9 @@ rm -rf %{buildroot}
 %{_includedir}/trfDecls.h
 
 %changelog
+* Mon Jul  6 2009 Tom "spot" Callaway <tcallawa@redhat.com> 2.1.3-3
+- fix noripemd patch to resolve undefined symbols (bz 506072)
+
 * Thu Mar 12 2009 Tom "spot" Callaway <tcallawa@redhat.com> 2.1.3-2
 - update haval implementation for proper licensing
 - drop non-free ripemd bits
