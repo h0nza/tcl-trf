@@ -4,7 +4,7 @@
 
 Name:		tcl-%{realname}
 Version:	2.1.3
-Release:	3%{?dist}
+Release:	4%{?dist}
 Summary:	Tcl extension providing "transformer" commands
 Group:		System Environment/Libraries
 License:	MIT and BSD and LGPLv2+ and GPLv2+ and Public Domain and OpenSSL
@@ -83,6 +83,9 @@ rm -rf %{buildroot}
 %{_includedir}/trfDecls.h
 
 %changelog
+* Sun Jul 26 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.1.3-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
+
 * Mon Jul  6 2009 Tom "spot" Callaway <tcallawa@redhat.com> 2.1.3-3
 - fix noripemd patch to resolve undefined symbols (bz 506072)
 
