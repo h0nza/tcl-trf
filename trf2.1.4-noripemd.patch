@@ -1,6 +1,6 @@
-diff -up trf2.1.3/configure.in.ripemd trf2.1.3/configure.in
---- trf2.1.3/configure.in.ripemd	2008-12-05 16:00:23.000000000 -0500
-+++ trf2.1.3/configure.in	2009-07-06 13:06:18.594475506 -0400
+diff -up trf2.1.4/configure.in.ripemd trf2.1.4/configure.in
+--- trf2.1.4/configure.in.ripemd	2009-06-18 00:45:22.000000000 -0400
++++ trf2.1.4/configure.in	2009-10-29 14:33:30.504518975 -0400
 @@ -86,7 +86,6 @@ TEA_ADD_SOURCES([otpcode.c qpcode.c refl
  TEA_ADD_SOURCES([dig_opt.c digest.c])
  TEA_ADD_SOURCES([crc.c crc_zlib.c adler.c])
@@ -9,10 +9,10 @@ diff -up trf2.1.3/configure.in.ripemd trf2.1.3/configure.in
  TEA_ADD_SOURCES([otpmd5.c otpsha1.c])
  
  TEA_ADD_SOURCES([rs_ecc.c])
-diff -up trf2.1.3/configure.ripemd trf2.1.3/configure
---- trf2.1.3/configure.ripemd	2008-12-05 16:00:23.000000000 -0500
-+++ trf2.1.3/configure	2009-07-06 13:06:18.598475318 -0400
-@@ -6566,7 +6566,7 @@ echo "$as_me: error: could not find sour
+diff -up trf2.1.4/configure.ripemd trf2.1.4/configure
+--- trf2.1.4/configure.ripemd	2009-06-18 00:45:24.000000000 -0400
++++ trf2.1.4/configure	2009-10-29 14:33:30.506531382 -0400
+@@ -7041,7 +7041,7 @@ echo "$as_me: error: could not find sour
  
  
  
@@ -21,9 +21,9 @@ diff -up trf2.1.3/configure.ripemd trf2.1.3/configure
      for i in $vars; do
  	case $i in
  	    \$*)
-diff -up trf2.1.3/DESCRIPTION.ripemd trf2.1.3/DESCRIPTION
---- trf2.1.3/DESCRIPTION.ripemd	2008-12-05 16:00:23.000000000 -0500
-+++ trf2.1.3/DESCRIPTION	2009-07-06 13:06:18.599475306 -0400
+diff -up trf2.1.4/DESCRIPTION.ripemd trf2.1.4/DESCRIPTION
+--- trf2.1.4/DESCRIPTION.ripemd	2009-06-18 00:45:22.000000000 -0400
++++ trf2.1.4/DESCRIPTION	2009-10-29 14:33:30.506531382 -0400
 @@ -26,7 +26,7 @@ extension trf {
      keywords {
  	tcl, conversion, message digests,
@@ -33,9 +33,9 @@ diff -up trf2.1.3/DESCRIPTION.ripemd trf2.1.3/DESCRIPTION
  	uuencode, base64, ascii85, reed-solomon, zlib, otp_md5, otp_sha1,
  	otp_words
      }
-diff -up trf2.1.3/doc/trf.man.ripemd trf2.1.3/doc/trf.man
---- trf2.1.3/doc/trf.man.ripemd	2008-12-05 16:00:23.000000000 -0500
-+++ trf2.1.3/doc/trf.man	2009-07-06 13:06:18.599475306 -0400
+diff -up trf2.1.4/doc/trf.man.ripemd trf2.1.4/doc/trf.man
+--- trf2.1.4/doc/trf.man.ripemd	2009-06-18 00:45:22.000000000 -0400
++++ trf2.1.4/doc/trf.man	2009-10-29 14:33:30.506531382 -0400
 @@ -102,10 +102,6 @@ The second category are message digests 
  [cmd sha1_otp]
  [enum]
@@ -56,9 +56,9 @@ diff -up trf2.1.3/doc/trf.man.ripemd trf2.1.3/doc/trf.man
  [keywords transformation encoding {message digest} compression {error correction}]
  [manpage_end]
  
-diff -up trf2.1.3/generic/init.c.ripemd trf2.1.3/generic/init.c
---- trf2.1.3/generic/init.c.ripemd	2008-12-05 16:00:23.000000000 -0500
-+++ trf2.1.3/generic/init.c	2009-07-06 13:10:48.011460824 -0400
+diff -up trf2.1.4/generic/init.c.ripemd trf2.1.4/generic/init.c
+--- trf2.1.4/generic/init.c.ripemd	2009-06-18 00:54:43.000000000 -0400
++++ trf2.1.4/generic/init.c	2009-10-29 14:33:30.507530461 -0400
 @@ -214,6 +214,7 @@ Tcl_Interp* interp;
    if (res != TCL_OK)
      return res;
@@ -75,9 +75,9 @@ diff -up trf2.1.3/generic/init.c.ripemd trf2.1.3/generic/init.c
  
    /*
     * Register freeform transformation, reflector into tcl level
-diff -up trf2.1.3/generic/transformInt.h.ripemd trf2.1.3/generic/transformInt.h
---- trf2.1.3/generic/transformInt.h.ripemd	2008-12-05 16:00:23.000000000 -0500
-+++ trf2.1.3/generic/transformInt.h	2009-07-06 13:06:18.600474735 -0400
+diff -up trf2.1.4/generic/transformInt.h.ripemd trf2.1.4/generic/transformInt.h
+--- trf2.1.4/generic/transformInt.h.ripemd	2009-06-18 00:55:33.000000000 -0400
++++ trf2.1.4/generic/transformInt.h	2009-10-29 14:33:30.507530461 -0400
 @@ -630,8 +630,8 @@ EXTERN int TrfInit_SHA1      _ANSI_ARGS_
  EXTERN int TrfInit_OTP_SHA1  _ANSI_ARGS_ ((Tcl_Interp* interp));
  EXTERN int TrfInit_ADLER     _ANSI_ARGS_ ((Tcl_Interp* interp));
@@ -89,9 +89,9 @@ diff -up trf2.1.3/generic/transformInt.h.ripemd trf2.1.3/generic/transformInt.h
  EXTERN int TrfInit_OTP_MD5   _ANSI_ARGS_ ((Tcl_Interp* interp));
  
  EXTERN int TrfInit_RS_ECC    _ANSI_ARGS_ ((Tcl_Interp* interp));
-diff -up trf2.1.3/LSM.ripemd trf2.1.3/LSM
---- trf2.1.3/LSM.ripemd	2008-12-05 16:00:23.000000000 -0500
-+++ trf2.1.3/LSM	2009-07-06 13:06:18.600474735 -0400
+diff -up trf2.1.4/LSM.ripemd trf2.1.4/LSM
+--- trf2.1.4/LSM.ripemd	2009-06-18 00:56:17.000000000 -0400
++++ trf2.1.4/LSM	2009-10-29 14:34:03.864389148 -0400
 @@ -18,7 +18,7 @@ Description:    A loadable extension to 
  	an official part of the core.
  Keywords:       tcl, conversion, message digests, data compression,
@@ -99,13 +99,13 @@ diff -up trf2.1.3/LSM.ripemd trf2.1.3/LSM
 -	ripemd-160, dual, hexadecimal, octal, uuencode, base64, ascii85,
 +	dual, hexadecimal, octal, uuencode, base64, ascii85,
  	reed-solomon, zlib, otp_md5, otp_sha1, otp_words
- Author:         Andreas Kupries (a.kupries@westend.com)
- Maintained-by:  Andreas Kupries (a.kupries@westend.com)
-diff -up trf2.1.3/tea.tests/common_md.test.ripemd trf2.1.3/tea.tests/common_md.test
---- trf2.1.3/tea.tests/common_md.test.ripemd	2008-12-05 16:00:23.000000000 -0500
-+++ trf2.1.3/tea.tests/common_md.test	2009-07-06 13:06:18.601475072 -0400
+ Author:         Andreas Kupries (andreas_kupries@users.sourceforge.net)
+ Maintained-by:  Andreas Kupries (andreas_kupries@users.sourceforge.net)
+diff -up trf2.1.4/tea.tests/common_md.test.ripemd trf2.1.4/tea.tests/common_md.test
+--- trf2.1.4/tea.tests/common_md.test.ripemd	2009-06-18 00:55:33.000000000 -0400
++++ trf2.1.4/tea.tests/common_md.test	2009-10-29 14:33:30.507530461 -0400
 @@ -13,7 +13,7 @@
- # $Id: trf2.1.3-noripemd.patch,v 1.3 2009/10/29 18:41:32 spot Exp $
+ # $Id: common_md.test,v 1.2 2000/11/18 22:42:32 aku Exp $
  
  
 -# message digests: adler, crc, crc_zlib, haval, md5, md2, sha, rmd160, rmd128
@@ -113,9 +113,9 @@ diff -up trf2.1.3/tea.tests/common_md.test.ripemd trf2.1.3/tea.tests/common_md.t
  # tests done with builtin digest 'crc'.
  
  foreach {i opt ovalue} {
-diff -up trf2.1.3/tea.tests/________.ripemd trf2.1.3/tea.tests/________
---- trf2.1.3/tea.tests/________.ripemd	2008-12-05 16:00:23.000000000 -0500
-+++ trf2.1.3/tea.tests/________	2009-07-06 13:06:18.601475072 -0400
+diff -up trf2.1.4/tea.tests/________.ripemd trf2.1.4/tea.tests/________
+--- trf2.1.4/tea.tests/________.ripemd	2009-06-18 00:55:33.000000000 -0400
++++ trf2.1.4/tea.tests/________	2009-10-29 14:33:30.508529332 -0400
 @@ -13,7 +13,7 @@
  
  cd ../unix
@@ -134,9 +134,9 @@ diff -up trf2.1.3/tea.tests/________.ripemd trf2.1.3/tea.tests/________
  	set fail [catch {
  	    exec unix/tclsh tools/md -a $md -c digests.$md | sed -e {s/^/	/} >@ stdout
  	} msg];#{}
-diff -up trf2.1.3/tests/common.md.test.ripemd trf2.1.3/tests/common.md.test
---- trf2.1.3/tests/common.md.test.ripemd	2008-12-05 16:00:23.000000000 -0500
-+++ trf2.1.3/tests/common.md.test	2009-07-06 13:06:18.602474780 -0400
+diff -up trf2.1.4/tests/common.md.test.ripemd trf2.1.4/tests/common.md.test
+--- trf2.1.4/tests/common.md.test.ripemd	2009-06-18 00:55:33.000000000 -0400
++++ trf2.1.4/tests/common.md.test	2009-10-29 14:33:30.508529332 -0400
 @@ -14,7 +14,7 @@
  
  if {[string compare test [info procs test]] == 1} then {source defs}
@@ -146,9 +146,9 @@ diff -up trf2.1.3/tests/common.md.test.ripemd trf2.1.3/tests/common.md.test
  # tests done with builtin digest 'crc'.
  
  foreach {i opt ovalue} {
-diff -up trf2.1.3/tests/________.ripemd trf2.1.3/tests/________
---- trf2.1.3/tests/________.ripemd	2008-12-05 16:00:23.000000000 -0500
-+++ trf2.1.3/tests/________	2009-07-06 13:06:18.602474780 -0400
+diff -up trf2.1.4/tests/________.ripemd trf2.1.4/tests/________
+--- trf2.1.4/tests/________.ripemd	2009-06-18 00:55:33.000000000 -0400
++++ trf2.1.4/tests/________	2009-10-29 14:33:30.508529332 -0400
 @@ -13,7 +13,7 @@
  
  cd ../unix
@@ -167,9 +167,9 @@ diff -up trf2.1.3/tests/________.ripemd trf2.1.3/tests/________
  	set fail [catch {
  	    exec unix/tclsh tools/md -a $md -c digests.$md | sed -e {s/^/	/} >@ stdout
  	} msg];#{}
-diff -up trf2.1.3/tools/md.ripemd trf2.1.3/tools/md
---- trf2.1.3/tools/md.ripemd	2008-12-05 16:00:23.000000000 -0500
-+++ trf2.1.3/tools/md	2009-07-06 13:06:18.603475257 -0400
+diff -up trf2.1.4/tools/md.ripemd trf2.1.4/tools/md
+--- trf2.1.4/tools/md.ripemd	2009-06-18 00:45:22.000000000 -0400
++++ trf2.1.4/tools/md	2009-10-29 14:33:30.508529332 -0400
 @@ -41,7 +41,7 @@ proc usage {args} {
      puts stdout "\t-c file\t\tenter check mode, read data from file"
      puts stdout "\t-a alg\t\tuse specified algorithm to generate/check digests"

@@ -3,8 +3,8 @@
 %define realname trf
 
 Name:		tcl-%{realname}
-Version:	2.1.3
-Release:	4%{?dist}
+Version:	2.1.4
+Release:	1%{?dist}
 Summary:	Tcl extension providing "transformer" commands
 Group:		System Environment/Libraries
 License:	MIT and BSD and LGPLv2+ and GPLv2+ and Public Domain and OpenSSL
@@ -12,14 +12,13 @@ URL:		http://tcltrf.sourceforge.net
 # We can't use the upstream source because it includes the non-free ripemd implementation
 # Source0:	http://downloads.sourceforge.net/tcl%{realname}/%{realname}%{version}.tar.bz2
 # To make the clean tarball, just run:
-# rm -rf digests.ripemd128 digests.ripemd160 doc/ripemd160.man doc/html/ripemd160.html doc/html/ripemd128.html \
-# tests/rmd128.test tests/rmd160.test tea.tests/rmd128_bb.test tea.tests/rmd160_bb.test generic/rmd128.c generic/rmd160.c \ 
-# generic/ripemd/
+# rm -rf doc/ripemd160.man doc/html/ripemd160.html doc/html/ripemd128.html ./doc/tmml/ripemd128.tmml ./doc/tmml/ripemd160.tmml ./doc/ripemd128.man 
+# ./doc/digest/ripemd.inc ./generic/ripemd/ generic/rmd1* tea.tests/rmd1* tests/rmd1*
 Source0:	%{realname}%{version}-noripemd.tar.bz2
 # BSD licensed haval bits, included code is older and has bad license
 Source1:	http://labs.calyptix.com/haval-1.1.tar.gz
 Patch0:		trf2.1.3-havalfixes.patch
-Patch1:		trf2.1.3-noripemd.patch
+Patch1:		trf2.1.4-noripemd.patch
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 Provides:	%{realname} = %{version}-%{release}
 BuildRequires:	tcl-devel, tk-devel, zlib-devel, bzip2-devel, openssl-devel
@@ -75,7 +74,7 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %doc doc/ ANNOUNCE ChangeLog DESCRIPTION README*
-%{tcl_sitearch}/Trf2.1.3
+%{tcl_sitearch}/Trf%{version}
 
 %files devel
 %defattr(-,root,root,-)
@@ -83,6 +82,9 @@ rm -rf %{buildroot}
 %{_includedir}/trfDecls.h
 
 %changelog
+* Thu Oct 29 2009 Tom "spot" Callaway <tcallawa@redhat.com> - 2.1.4-1
+- Update to 2.1.4
+
 * Sun Jul 26 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.1.3-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
 
