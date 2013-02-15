@@ -4,7 +4,7 @@
 
 Name:		tcl-%{realname}
 Version:	2.1.4
-Release:	4%{?dist}
+Release:	5%{?dist}
 Summary:	Tcl extension providing "transformer" commands
 Group:		System Environment/Libraries
 License:	MIT and BSD and LGPLv2+ and GPLv2+ and Public Domain and OpenSSL
@@ -82,6 +82,9 @@ rm -rf %{buildroot}
 %{_includedir}/trfDecls.h
 
 %changelog
+* Fri Feb 15 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.1.4-5
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
+
 * Sat Jul 21 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.1.4-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
 
