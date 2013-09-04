@@ -4,7 +4,7 @@
 
 Name:		tcl-%{realname}
 Version:	2.1.4
-Release:	6%{?dist}
+Release:	7%{?dist}
 Summary:	Tcl extension providing "transformer" commands
 Group:		System Environment/Libraries
 License:	MIT and BSD and LGPLv2+ and GPLv2+ and Public Domain and OpenSSL
@@ -14,6 +14,8 @@ URL:		http://tcltrf.sourceforge.net
 # To make the clean tarball, just run:
 # rm -rf doc/ripemd160.man doc/html/ripemd160.html doc/html/ripemd128.html ./doc/tmml/ripemd128.tmml ./doc/tmml/ripemd160.tmml ./doc/ripemd128.man 
 # ./doc/digest/ripemd.inc ./generic/ripemd/ generic/rmd1* tea.tests/rmd1* tests/rmd1*
+# We also need to remove the non-free win/msvcrt.dll
+# rm -rf win/msvcrt.dll
 Source0:	%{realname}%{version}-noripemd.tar.bz2
 # BSD licensed haval bits, included code is older and has bad license
 Source1:	http://labs.calyptix.com/haval-1.1.tar.gz
@@ -57,6 +59,9 @@ popd
 # Get rid of incorrect ripemd docs
 rm -rf doc/digest/ripemd.inc doc/man/ripemd128.n doc/man/ripemd160.n doc/ripemd128.man doc/tmml/ripemd128.tmml doc/tmml/ripemd160.tmml
 
+# Nuke non-modifiable doc
+rm -rf doc/painless-guide-to-crc.txt
+
 %build
 %configure --with-zlib-lib-dir=%{_libdir} --with-ssl-lib-dir=%{_libdir} --with-bz2-lib-dir=%{_libdir}
 make %{?_smp_mflags}
@@ -82,6 +87,10 @@ rm -rf %{buildroot}
 %{_includedir}/trfDecls.h
 
 %changelog
+* Wed Sep  4 2013 Tom Callaway <spot@fedoraproject.org> - 2.1.4-7
+- remove win/msvcrt.dll from tarball
+- delete doc/painless-guide-to-crc.txt
+
 * Sun Aug 04 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.1.4-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
 
