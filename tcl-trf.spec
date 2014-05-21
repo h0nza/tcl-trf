@@ -4,7 +4,7 @@
 
 Name:		tcl-%{realname}
 Version:	2.1.4
-Release:	7%{?dist}
+Release:	8%{?dist}
 Summary:	Tcl extension providing "transformer" commands
 Group:		System Environment/Libraries
 License:	MIT and BSD and LGPLv2+ and GPLv2+ and Public Domain and OpenSSL
@@ -87,6 +87,9 @@ rm -rf %{buildroot}
 %{_includedir}/trfDecls.h
 
 %changelog
+* Wed May 21 2014 Jaroslav Škarvada <jskarvad@redhat.com> - 2.1.4-8
+- Rebuilt for https://fedoraproject.org/wiki/Changes/f21tcl86
+
 * Wed Sep  4 2013 Tom Callaway <spot@fedoraproject.org> - 2.1.4-7
 - remove win/msvcrt.dll from tarball
 - delete doc/painless-guide-to-crc.txt
