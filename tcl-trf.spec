@@ -4,7 +4,7 @@
 
 Name:		tcl-%{realname}
 Version:	2.1.4
-Release:	8%{?dist}
+Release:	9%{?dist}
 Summary:	Tcl extension providing "transformer" commands
 Group:		System Environment/Libraries
 License:	MIT and BSD and LGPLv2+ and GPLv2+ and Public Domain and OpenSSL
@@ -24,7 +24,7 @@ Patch1:		trf2.1.4-noripemd.patch
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 Provides:	%{realname} = %{version}-%{release}
 BuildRequires:	tcl-devel, tk-devel, zlib-devel, bzip2-devel, openssl-devel
-Requires:	tcl(abi) = 8.5
+Requires:	tcl(abi) = 8.6
 Requires:	bzip2, zlib, openssl
 
 %description
@@ -87,6 +87,9 @@ rm -rf %{buildroot}
 %{_includedir}/trfDecls.h
 
 %changelog
+* Wed May 28 2014 Jaroslav Škarvada <jskarvad@redhat.com> - 2.1.4-9
+- Changed requires to require tcl-8.6
+
 * Wed May 21 2014 Jaroslav Škarvada <jskarvad@redhat.com> - 2.1.4-8
 - Rebuilt for https://fedoraproject.org/wiki/Changes/f21tcl86
 
