@@ -1,10 +1,10 @@
-%{!?tcl_version: %define tcl_version %(echo 'puts $tcl_version' | tclsh)}
-%{!?tcl_sitearch: %define tcl_sitearch %{_libdir}/tcl%{tcl_version}}
-%define realname trf
+%{!?tcl_version: %global tcl_version %(echo 'puts $tcl_version' | tclsh)}
+%{!?tcl_sitearch: %global tcl_sitearch %{_libdir}/tcl%{tcl_version}}
+%global realname trf
 
 Name:		tcl-%{realname}
 Version:	2.1.4
-Release:	12%{?dist}
+Release:	13%{?dist}
 Summary:	Tcl extension providing "transformer" commands
 Group:		System Environment/Libraries
 License:	MIT and BSD and LGPLv2+ and GPLv2+ and Public Domain and OpenSSL
@@ -21,7 +21,6 @@ Source0:	%{realname}%{version}-noripemd.tar.bz2
 Source1:	http://labs.calyptix.com/haval-1.1.tar.gz
 Patch0:		trf2.1.3-havalfixes.patch
 Patch1:		trf2.1.4-noripemd.patch
-BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 Provides:	%{realname} = %{version}-%{release}
 BuildRequires:	tcl-devel, tk-devel, zlib-devel, bzip2-devel, openssl-devel
 Requires:	tcl(abi) = 8.6
@@ -40,7 +39,7 @@ charset recording, error correction, and hash generation.
 %package devel
 Summary:	Development files for tcl-%{realname}
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}%{?_isa} = %{version}-%{release}
 
 %description devel
 Development files for tcl-%{realname}.
@@ -67,26 +66,23 @@ rm -rf doc/painless-guide-to-crc.txt
 make %{?_smp_mflags}
 
 %install
-rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
 install -d %{buildroot}%{tcl_sitearch}
 mv %{buildroot}%{_libdir}/Trf%{version} %{buildroot}%{tcl_sitearch}/Trf%{version}
 rm -rf %{buildroot}%{tcl_sitearch}/Trf%{version}/*.a
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root,-)
 %doc doc/ ANNOUNCE ChangeLog DESCRIPTION README*
 %{tcl_sitearch}/Trf%{version}
 
 %files devel
-%defattr(-,root,root,-)
 %{_includedir}/transform.h
 %{_includedir}/trfDecls.h
 
 %changelog
+* Tue Jan 26 2016 Tom Callaway <spot@fedoraproject.org> - 2.1.4-13
+- modernize spec file
+
 * Fri Jun 19 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.1.4-12
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
