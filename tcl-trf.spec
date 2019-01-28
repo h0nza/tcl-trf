@@ -6,7 +6,6 @@ Name:		tcl-%{realname}
 Version:	2.1.4
 Release:	19%{?dist}
 Summary:	Tcl extension providing "transformer" commands
-Group:		System Environment/Libraries
 License:	MIT and BSD and LGPLv2+ and GPLv2+ and Public Domain and OpenSSL
 URL:		http://tcltrf.sourceforge.net
 # We can't use the upstream source because it includes the non-free ripemd implementation
@@ -39,7 +38,6 @@ charset recording, error correction, and hash generation.
 
 %package devel
 Summary:	Development files for tcl-%{realname}
-Group:		Development/Libraries
 Requires:	%{name}%{?_isa} = %{version}-%{release}
 
 %description devel
