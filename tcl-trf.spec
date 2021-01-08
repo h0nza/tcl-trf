@@ -21,6 +21,7 @@ Source1:	http://labs.calyptix.com/haval-1.1.tar.gz
 Patch0:		trf2.1.3-havalfixes.patch
 Patch1:		trf2.1.4-noripemd.patch
 Provides:	%{realname} = %{version}-%{release}
+BuildRequires: make
 BuildRequires:  gcc
 BuildRequires:	tcl-devel, tk-devel, zlib-devel, bzip2-devel, openssl-devel
 Requires:	tcl(abi) = 8.6
